@@ -1,6 +1,12 @@
   // Inject all CSS (except body) via JS
     (function() {
       const css = `
+
+      body {
+       font-family: 'Open Sans', sans-serif;
+       
+      }
+
 *::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -668,3 +674,15 @@ Provide a concise and helpful explanation. use <strong> to bold ur text instead 
 
     // Setup expander row on load (in case user wants to open before answering)
     setupExpanderRow();
+
+    // Inject Font Awesome if not already present
+(function() {
+  if (!document.querySelector('link[href*="fontawesome"]')) {
+    const fa = document.createElement('link');
+    fa.rel = 'stylesheet';
+    fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
+    fa.crossOrigin = 'anonymous';
+    document.head.appendChild(fa);
+  }
+})();
+
